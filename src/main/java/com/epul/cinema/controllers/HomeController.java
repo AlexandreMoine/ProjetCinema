@@ -1,4 +1,4 @@
-package com.epul.cinema.controller;
+package com.epul.cinema.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

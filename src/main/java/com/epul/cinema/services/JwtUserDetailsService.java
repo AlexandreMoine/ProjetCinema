@@ -1,6 +1,6 @@
-package com.epul.cinema.service;
+package com.epul.cinema.services;
 
-import com.epul.cinema.domains.UtilisateurEntity;
+import com.epul.cinema.domains.UserEntity;
 import com.epul.cinema.repositories.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
@@ -23,11 +23,11 @@ public class JwtUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        UtilisateurEntity unUtilisateur = null;
+        UserEntity unUtilisateur = null;
         // on accède à l'utilisateur
         unUtilisateur = utilisateurRepository.rechercheNom(s);
         if (unUtilisateur != null) {
-            return new User(unUtilisateur.getNom(), unUtilisateur.getMdp(),
+            return new User(unUtilisateur.getLogin(), unUtilisateur.getPassword(),
                     new ArrayList<>());
         } else {
             throw new UsernameNotFoundException("User not found with username: " + s);

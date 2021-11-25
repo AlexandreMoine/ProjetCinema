@@ -1,8 +1,6 @@
-package com.epul.cinema.controller;
+package com.epul.cinema.controllers;
 
-import java.util.Objects;
-
-import com.epul.cinema.domains.UtilisateurEntity;
+import com.epul.cinema.domains.UserEntity;
 import com.epul.cinema.repositories.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,13 +10,12 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import com.epul.cinema.service.JwtUserDetailsService;
+import com.epul.cinema.services.JwtUserDetailsService;
 import com.epul.cinema.config.JwtTokenUtil;
 import com.epul.cinema.domains.JwtResponse;
 
@@ -42,9 +39,9 @@ public class JwtAuthenticationController {
     }
 
     @RequestMapping(value="/login", method = RequestMethod.POST)
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody UtilisateurEntity util) throws Exception {
+    public ResponseEntity<?> createAuthenticationToken(@RequestBody UserEntity util) throws Exception {
         try {
-            UserDetails details = appelAuthentication(util.getNom(), util.getMdp());
+            UserDetails details = appelAuthentication(util.getLogin(), util.getPassword());
             final String token = jwtTokenUtil.generateToken(details);
             return ResponseEntity.ok(new JwtResponse(token));
         } catch (Exception e) {

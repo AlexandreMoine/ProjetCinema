@@ -1,7 +1,7 @@
-package com.epul.cinema.controller;
+package com.epul.cinema.controllers;
 
 import com.epul.cinema.domains.PersonnageEntity;
-import com.epul.cinema.service.PersonnageService;
+import com.epul.cinema.services.PersonnageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

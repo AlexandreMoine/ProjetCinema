@@ -1,4 +1,4 @@
-package com.epul.cinema.service;
+package com.epul.cinema.services;
 
 import com.epul.cinema.repositories.CategorieRepository;
 import org.springframework.beans.factory.annotation.Autowired;

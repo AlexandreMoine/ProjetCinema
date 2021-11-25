@@ -1,4 +1,4 @@
-package com.epul.cinema.mesExceptions;
+package com.epul.cinema.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
