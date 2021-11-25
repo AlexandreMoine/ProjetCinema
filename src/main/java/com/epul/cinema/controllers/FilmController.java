@@ -14,13 +14,13 @@ import java.util.List;
 public class FilmController {
 
     @Autowired
-    private FilmService filmService;
+    private MovieService filmService;
 
     @GetMapping("/getFilms")
     public List<Movie> getFilms() {
         List<Movie> films = null;
         try {
-            films = this.filmService.getFilms();
+            films = this.filmService.list();
         } catch (Exception e) {
             ResponseEntity.notFound().build();
         }
@@ -32,7 +32,7 @@ public class FilmController {
     public List<Movie> getFilmsByRealisateur(@PathVariable int noRea) {
         List<Movie> films = null;
         try {
-            films = this.filmService.getFilmsByRealisateur(noRea);
+            films = this.filmService.listByDirector(noRea);
         } catch (Exception e) {
             ResponseEntity.notFound().build();
         }

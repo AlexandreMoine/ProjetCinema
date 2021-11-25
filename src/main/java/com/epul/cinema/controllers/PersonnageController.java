@@ -1,7 +1,7 @@
 package com.epul.cinema.controllers;
 
 import com.epul.cinema.domains.MovieCharacter;
-import com.epul.cinema.services.PersonnageService;
+import com.epul.cinema.services.MovieCharacterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +14,7 @@ import java.util.List;
 public class PersonnageController {
 
     @Autowired
-    private PersonnageService personnageService;
+    private MovieCharacterService personnageService;
 
     @GetMapping("/getPersonnagesByFilm/{noFilm}")
     public List<MovieCharacter> getPersonnagesByFilm(@PathVariable int noFilm) {
@@ -35,7 +35,7 @@ public class PersonnageController {
         List<MovieCharacter> personnages = null;
 
         try {
-            personnages = personnageService.getPersonnagesByActeur(noAct);
+            personnages = personnageService.listByActor(noAct);
         } catch (Exception e) {
             ResponseEntity.notFound().build();
         }

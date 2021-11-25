@@ -1,7 +1,7 @@
 package com.epul.cinema.services;
 
 import com.epul.cinema.domains.User;
-import com.epul.cinema.repositories.UtilisateurRepository;
+import com.epul.cinema.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,10 +13,10 @@ import java.util.ArrayList;
 @Service
 public class JwtUserDetailsService implements UserDetailsService {
 
-    private UtilisateurRepository utilisateurRepository;
+    private UserRepository utilisateurRepository;
 
     @Autowired
-    public JwtUserDetailsService(UtilisateurRepository utilisateurRepository) {
+    public JwtUserDetailsService(UserRepository utilisateurRepository) {
         this.utilisateurRepository = utilisateurRepository;
     }
 

@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface FilmRepository extends JpaRepository<Movie, Integer> {
+public interface MovieRepository extends JpaRepository<Movie, Long> {
 
-    @Query("SELECT f FROM Movie f WHERE f.director.id = :noRea")
-    List<Movie> getFilmsByRealisateur(@Param("noRea") int noRea);
+    @Query("SELECT movies FROM Movie movies WHERE movies.director.id = :director_id")
+    List<Movie> getMoviesByDirector(@Param("director_id") long director_id);
 
 }

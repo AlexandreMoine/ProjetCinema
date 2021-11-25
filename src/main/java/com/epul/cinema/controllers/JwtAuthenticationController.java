@@ -1,7 +1,7 @@
 package com.epul.cinema.controllers;
 
 import com.epul.cinema.domains.User;
-import com.epul.cinema.repositories.UtilisateurRepository;
+import com.epul.cinema.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -31,10 +31,10 @@ public class JwtAuthenticationController {
     @Autowired
     private JwtUserDetailsService userDetailsService;
 
-    private UtilisateurRepository utilisateurRepository;
+    private UserRepository utilisateurRepository;
 
     @Autowired
-    public JwtAuthenticationController(UtilisateurRepository utilisateurRepository) {
+    public JwtAuthenticationController(UserRepository utilisateurRepository) {
         this.utilisateurRepository = utilisateurRepository;
     }
 
