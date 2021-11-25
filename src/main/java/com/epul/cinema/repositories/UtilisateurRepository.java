@@ -1,12 +1,12 @@
 package com.epul.cinema.repositories;
 
-import com.epul.cinema.domains.UserEntity;
+import com.epul.cinema.domains.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UtilisateurRepository extends JpaRepository<UserEntity, Integer> {
+public interface UtilisateurRepository extends JpaRepository<User, Integer> {
 
-    UserEntity rechercheNom(String login);
+    User findLogin(String login);
 
 }

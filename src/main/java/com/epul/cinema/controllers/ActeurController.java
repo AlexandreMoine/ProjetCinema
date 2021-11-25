@@ -1,6 +1,6 @@
 package com.epul.cinema.controllers;
 
-import com.epul.cinema.domains.ActeurEntity;
+import com.epul.cinema.domains.Actor;
 import com.epul.cinema.services.ActeurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +16,8 @@ public class ActeurController {
     private ActeurService acteurService;
 
     @GetMapping("/getActeurs")
-    public List<ActeurEntity> getActeurs() {
-        List<ActeurEntity> acteurs = null;
+    public List<Actor> getActeurs() {
+        List<Actor> acteurs = null;
         try {
             acteurs = this.acteurService.getActeurs();
         } catch (Exception e) {

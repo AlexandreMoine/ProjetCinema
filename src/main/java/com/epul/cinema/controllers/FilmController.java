@@ -17,8 +17,8 @@ public class FilmController {
     private FilmService filmService;
 
     @GetMapping("/getFilms")
-    public List<FilmEntity> getFilms() {
-        List<FilmEntity> films = null;
+    public List<Movie> getFilms() {
+        List<Movie> films = null;
         try {
             films = this.filmService.getFilms();
         } catch (Exception e) {
@@ -29,8 +29,8 @@ public class FilmController {
 
 
     @GetMapping("/getFilmsByRealisateur/{noRea}")
-    public List<FilmEntity> getFilmsByRealisateur(@PathVariable int noRea) {
-        List<FilmEntity> films = null;
+    public List<Movie> getFilmsByRealisateur(@PathVariable int noRea) {
+        List<Movie> films = null;
         try {
             films = this.filmService.getFilmsByRealisateur(noRea);
         } catch (Exception e) {

@@ -1,6 +1,6 @@
 package com.epul.cinema.services;
 
-import com.epul.cinema.domains.PersonnageEntity;
+import com.epul.cinema.domains.MovieCharacter;
 import com.epul.cinema.repositories.PersonnageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,11 +17,11 @@ public class PersonnageService {
         this.personnageRepository = personnageRepository;
     }
 
-    public List<PersonnageEntity> getPersonnagesByFilm(int noFilm) {
+    public List<MovieCharacter> getPersonnagesByFilm(int noFilm) {
         return this.personnageRepository.getPersonnagesByFilm(noFilm);
     }
 
-    public List<PersonnageEntity> getPersonnagesByActeur(int noAct) {
+    public List<MovieCharacter> getPersonnagesByActeur(int noAct) {
         return this.personnageRepository.getPersonnagesByActeur(noAct);
     }
 

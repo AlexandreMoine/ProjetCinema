@@ -1,6 +1,6 @@
 package com.epul.cinema.controllers;
 
-import com.epul.cinema.domains.UserEntity;
+import com.epul.cinema.domains.User;
 import com.epul.cinema.repositories.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +39,7 @@ public class JwtAuthenticationController {
     }
 
     @RequestMapping(value="/login", method = RequestMethod.POST)
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody UserEntity util) throws Exception {
+    public ResponseEntity<?> createAuthenticationToken(@RequestBody User util) throws Exception {
         try {
             UserDetails details = appelAuthentication(util.getLogin(), util.getPassword());
             final String token = jwtTokenUtil.generateToken(details);

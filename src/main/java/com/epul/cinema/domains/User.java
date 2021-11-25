@@ -5,7 +5,8 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "user", schema = "cinema", catalog = "")
-public class UserEntity {
+@NamedQuery(name = "User.findLogin", query = "select user  from User  user where user.login = ?1")
+public class User {
     private Long id;
     private String login;
     private String password;
@@ -56,7 +57,7 @@ public class UserEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UserEntity that = (UserEntity) o;
+        User that = (User) o;
         return Objects.equals(id, that.id) && Objects.equals(login, that.login) && Objects.equals(password, that.password) && Objects.equals(role, that.role);
     }
 
