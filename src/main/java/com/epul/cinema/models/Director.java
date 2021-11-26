@@ -1,18 +1,14 @@
-package com.epul.cinema.domains;
+package com.epul.cinema.models;
 
 import javax.persistence.*;
-import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "actor", schema = "cinema", catalog = "")
-public class Actor {
+@Table(name = "director", schema = "cinema", catalog = "")
+public class Director {
     private Long id;
     private String firstname;
     private String lastname;
-    private Date birth;
-    private Date death;
-
 
     @Id
     @Column(name = "id")
@@ -44,36 +40,16 @@ public class Actor {
         this.lastname = lastname;
     }
 
-    @Basic
-    @Column(name = "birth")
-    public Date getBirth() {
-        return birth;
-    }
-
-    public void setBirth(Date birth) {
-        this.birth = birth;
-    }
-
-    @Basic
-    @Column(name = "death")
-    public Date getDeath() {
-        return death;
-    }
-
-    public void setDeath(Date death) {
-        this.death = death;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Actor that = (Actor) o;
-        return Objects.equals(id, that.id) && Objects.equals(firstname, that.firstname) && Objects.equals(lastname, that.lastname) && Objects.equals(birth, that.birth) && Objects.equals(death, that.death);
+        Director that = (Director) o;
+        return Objects.equals(id, that.id) && Objects.equals(firstname, that.firstname) && Objects.equals(lastname, that.lastname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstname, lastname, birth, death);
+        return Objects.hash(id, firstname, lastname);
     }
 }

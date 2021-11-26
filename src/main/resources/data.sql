@@ -6,7 +6,19 @@ SET time_zone = "+00:00";
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `user` (`id`, `login`, `password`, `role`) VALUES (1, 'Merlot', '$2a$04$CMDLDuhgBAxnpYwy3Lfsr.nBFH.eGEep6bV6mh4j7Nxtns4awxIlq', 'admin');
+INSERT INTO `users` (`username`, `email`, `password`) VALUES ('Merlot', 'merlot@gmail.com', '$2a$04$CMDLDuhgBAxnpYwy3Lfsr.nBFH.eGEep6bV6mh4j7Nxtns4awxIlq');
+INSERT INTO `users` (`username`, `email`, `password`) VALUES ('thiti', 'thiti@gmail.com', '$2a$04$1zyF3Uu.ZDMZuICCKcw1WO0zoHnDRMnL.v7yAm881jYEF5NOQR58.');
+
+INSERT INTO roles(name) VALUES('ROLE_USER');
+INSERT INTO roles(name) VALUES('ROLE_MODERATOR');
+INSERT INTO roles(name) VALUES('ROLE_ADMIN');
+
+INSERT INTO user_roles(user_id, role_id) VALUES(1, 1);
+
+INSERT INTO user_roles(user_id, role_id) VALUES(2, 1);
+INSERT INTO user_roles(user_id, role_id) VALUES(2, 2);
+INSERT INTO user_roles(user_id, role_id) VALUES(2, 3);
+
 
 --
 -- Déchargement des données de la table `acteur`

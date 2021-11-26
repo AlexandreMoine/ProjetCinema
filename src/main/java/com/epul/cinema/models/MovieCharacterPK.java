@@ -1,4 +1,4 @@
-package com.epul.cinema.domains;
+package com.epul.cinema.models;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
