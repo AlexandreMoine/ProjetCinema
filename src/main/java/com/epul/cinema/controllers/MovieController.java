@@ -10,33 +10,34 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/film")
-public class FilmController {
+@RequestMapping("/movies")
+public class MovieController {
 
     @Autowired
-    private MovieService filmService;
+    private MovieService movieService;
 
-    @GetMapping("/getFilms")
-    public List<Movie> getFilms() {
-        List<Movie> films = null;
+    @GetMapping
+    public List<Movie> list() {
+        List<Movie> movies = null;
         try {
-            films = this.filmService.list();
+            movies = this.movieService.list();
         } catch (Exception e) {
             ResponseEntity.notFound().build();
         }
-        return films;
+        return movies;
     }
 
 
-    @GetMapping("/getFilmsByRealisateur/{noRea}")
-    public List<Movie> getFilmsByRealisateur(@PathVariable int noRea) {
-        List<Movie> films = null;
+    // TODO pas certains pour le nom de la route
+    @GetMapping("/directors/{director_id}")
+    public List<Movie> listByDirector(@PathVariable int director_id) {
+        List<Movie> movies = null;
         try {
-            films = this.filmService.listByDirector(noRea);
+            movies = this.movieService.listByDirector(director_id);
         } catch (Exception e) {
             ResponseEntity.notFound().build();
         }
-        return films;
+        return movies;
     }
 
 }

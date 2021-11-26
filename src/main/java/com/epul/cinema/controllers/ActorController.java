@@ -9,21 +9,25 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/acteur")
-public class ActeurController {
+@RequestMapping("/actors")
+public class ActorController {
+
+    private final ActorService actorService;
 
     @Autowired
-    private ActorService acteurService;
+    public ActorController(ActorService actorService) {
+        this.actorService = actorService;
+    }
 
-    @GetMapping("/getActeurs")
-    public List<Actor> getActeurs() {
-        List<Actor> acteurs = null;
+    @GetMapping
+    public List<Actor> list() {
+        List<Actor> actors = null;
         try {
-            acteurs = this.acteurService.list();
+            actors = this.actorService.list();
         } catch (Exception e) {
             ResponseEntity.notFound().build();
         }
-        return acteurs;
+        return actors;
     }
 
 

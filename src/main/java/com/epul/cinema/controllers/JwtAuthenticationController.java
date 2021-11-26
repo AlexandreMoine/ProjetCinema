@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.epul.cinema.services.JwtUserDetailsService;
-import com.epul.cinema.config.JwtTokenUtil;
+import com.epul.cinema.utils.JwtTokenUtil;
 import com.epul.cinema.domains.JwtResponse;
 
-@RequestMapping("/authentification")
+@RequestMapping
 @RestController
 @CrossOrigin
 public class JwtAuthenticationController {

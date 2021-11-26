@@ -1,4 +1,4 @@
-package com.epul.cinema.config;
+package com.epul.cinema.utils;
 
 
 import java.io.Serializable;
@@ -17,18 +17,18 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Component
 public class JwtTokenUtil implements Serializable {
 
-  //  private static final long serialVersionUID = -2550185165626007488L;
+    // private static final long serialVersionUID = -2550185165626007488L;
     public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
     @Value(value = "${jwt.secret}")
     private String secret;
-   // static Key secret = MacProvider.generateKey();
+    // static Key secret = MacProvider.generateKey();
 
-    //On retrouve le nom de l'utilisateur avec le Token
+    // On retrouve le nom de l'utilisateur avec le Token
     public String getUsernameFromToken(String token) {
         return getClaimFromToken(token, Claims::getSubject);
     }
 
-    //Date d'expiration du Token
+    // Date d'expiration du Token
     public Date getExpirationDateFromToken(String token) {
         return getClaimFromToken(token, Claims::getExpiration);
     }
@@ -38,18 +38,18 @@ public class JwtTokenUtil implements Serializable {
         return claimsResolver.apply(claims);
     }
 
-    //Pour retrouver des information à partir du Token, on a besoin de la clé
+    // Pour retrouver des information à partir du Token, on a besoin de la clé
     private Claims getAllClaimsFromToken(String token) {
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
     }
 
-    //on vérifie la date d'expiration du Token
+    // on vérifie la date d'expiration du Token
     private Boolean isTokenExpired(String token) {
         final Date expiration = getExpirationDateFromToken(token);
         return expiration.before(new Date());
     }
 
-    //on génère un token pour l'utilisateur
+    // on génère un token pour l'utilisateur
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
         return doGenerateToken(claims, userDetails.getUsername());
@@ -65,7 +65,7 @@ public class JwtTokenUtil implements Serializable {
                 .signWith(SignatureAlgorithm.HS512, secret).compact();
     }
 
-    //validation du Token
+    // validation du Token
 
     public Boolean validateToken(String token, UserDetails userDetails) {
 

@@ -33,9 +33,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private UserDetailsService jwtUserDetailsService;
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-
         // On configure AuthenticationManager pour qu'il sache où charger
         // utilisateur pour les informations d'identification correspondantes
         auth.userDetailsService(jwtUserDetailsService).passwordEncoder(passwordEncoder());
@@ -57,11 +57,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     // face aux requêtes qui arrivent
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-System.out.println("je passe");
+        System.out.println("je passe");
         // On n'utilise pas de  CSRF (cross-site request forgery) pour cet exemple
         httpSecurity.csrf().disable()
                 // dont authenticate this particular request
-                .authorizeRequests().antMatchers("/authentification/login").permitAll().
+                .authorizeRequests().antMatchers("/login").permitAll().
                 // toutes les requêtes doivent être authentifiées avec le jeton
                         anyRequest().authenticated().and().
                 //assurez-vous d'utiliser une session sans état
@@ -71,14 +71,13 @@ System.out.println("je passe");
         // ajouter un filtre pour valider le jeton avec chaque requête
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
-       // httpSecurity.exceptionHandling().accessDeniedPage("/authentification/authenticate");
+        // httpSecurity.exceptionHandling().accessDeniedPage("/authentification/authenticate");
     }
-
 
 
     @Override
     public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("/authentification/login")
+        web.ignoring().antMatchers("/login")
                 .antMatchers(HttpMethod.OPTIONS, "/**");
     }
 
@@ -86,18 +85,16 @@ System.out.println("je passe");
     public UrlBasedCorsConfigurationSource corsConfigurationSource() {
         final CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList("*"));
-        configuration.setAllowedMethods(Arrays.asList("HEAD",
-                "GET", "POST", "PUT", "DELETE", "PATCH"));
+        configuration.setAllowedMethods(Arrays.asList("HEAD", "GET", "POST", "PUT", "DELETE", "PATCH"));
         // setAllowCredentials(true) is important, otherwise:
         // The value of the 'Access-Control-Allow-Origin' header in the response must not be the wildcard '*' when the request's credentials mode is 'include'.
         configuration.setAllowCredentials(true);
         // setAllowedHeaders is important! Without it, OPTIONS preflight request
         // will fail with 403 Invalid CORS request
-        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control",
-                "Content-Type", "Accept"));
+        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control", "Content-Type", "Accept"));
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
-        return  source;
+        return source;
     }
 
 }
