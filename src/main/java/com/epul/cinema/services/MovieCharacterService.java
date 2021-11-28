@@ -1,6 +1,6 @@
 package com.epul.cinema.services;
 
-import com.epul.cinema.domains.MovieCharacter;
+import com.epul.cinema.models.MovieCharacter;
 import com.epul.cinema.repositories.MovieCharacterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

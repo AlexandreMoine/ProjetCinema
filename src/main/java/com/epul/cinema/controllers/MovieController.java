@@ -1,6 +1,6 @@
 package com.epul.cinema.controllers;
 
-import com.epul.cinema.domains.*;
+import com.epul.cinema.models.*;
 import com.epul.cinema.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

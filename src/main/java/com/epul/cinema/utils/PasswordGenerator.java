@@ -11,7 +11,7 @@ public class PasswordGenerator {
     }
 
     public static void main(String[] args) {
-        String hash = PasswordGenerator.generate("secret");
+        String hash = PasswordGenerator.generate("123");
         System.out.println(hash);
     }
 }

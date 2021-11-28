@@ -1,6 +1,6 @@
 package com.epul.cinema.controllers;
 
-import com.epul.cinema.domains.MovieCharacter;
+import com.epul.cinema.models.MovieCharacter;
 import com.epul.cinema.services.MovieCharacterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

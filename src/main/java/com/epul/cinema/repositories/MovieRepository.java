@@ -1,6 +1,6 @@
 package com.epul.cinema.repositories;
 
-import com.epul.cinema.domains.Movie;
+import com.epul.cinema.models.Movie;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

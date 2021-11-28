@@ -1,4 +1,4 @@
-package com.epul.cinema.domains;
+package com.epul.cinema.models;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -16,6 +16,7 @@ public class Actor {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
         return id;
     }
