@@ -17,7 +17,7 @@ import com.epul.cinema.payloads.responses.MessageResponse;
 import com.epul.cinema.repositories.RoleRepository;
 import com.epul.cinema.repositories.UserRepository;
 import com.epul.cinema.security.services.UserDetailsImpl;
-import com.epul.cinema.utils.JwtUtils;
+import com.epul.cinema.security.jwt.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
