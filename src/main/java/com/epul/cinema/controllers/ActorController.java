@@ -61,7 +61,7 @@ public class ActorController {
     }
 
     // TODO pas ouf si l'acteur est référencé ailleur dans la base
-    @DeleteMapping("/{id}")
+    @PostMapping("/delete/{id}")
     @PreAuthorize("hasRole('USER') || hasRole('MODERATOR') || hasRole('ADMIN')")
     public ResponseEntity<Object> delete(@PathVariable long id){
         try {

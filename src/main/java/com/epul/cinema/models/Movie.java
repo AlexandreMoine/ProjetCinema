@@ -1,5 +1,7 @@
 package com.epul.cinema.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Objects;
@@ -18,6 +20,7 @@ public class Movie {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
         return id;
     }
@@ -76,6 +79,7 @@ public class Movie {
         this.revenue_amount = revenue_amount;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -89,8 +93,7 @@ public class Movie {
         return Objects.hash(id, title, duration, release_date, budget, revenue_amount);
     }
 
-    @ManyToOne
-
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "category_code", referencedColumnName = "code", nullable = false)
     public Category getCategory() {
         return category;
@@ -99,8 +102,7 @@ public class Movie {
         this.category = category;
     }
 
-
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "director_id", referencedColumnName = "id", nullable = false)
     public Director getDirector() {
         return director;

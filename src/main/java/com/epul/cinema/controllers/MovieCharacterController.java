@@ -42,6 +42,4 @@ public class MovieCharacterController {
 
         return characters;
     }
-
-
 }

@@ -1,5 +1,8 @@
 package com.epul.cinema.models;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -66,6 +69,7 @@ public class MovieCharacter {
 
 
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "movie_id", referencedColumnName = "id", insertable = false, updatable = false, nullable = false)
     public Movie getMovie() {
         return movie;
@@ -75,6 +79,7 @@ public class MovieCharacter {
     }
 
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "actor_id", referencedColumnName = "id", insertable = false, updatable = false, nullable = false)
     public Actor getActor() {
         return actor;
