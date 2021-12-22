@@ -48,10 +48,22 @@ INSERT INTO `director` (`id`, `lastname`, `firstname`) VALUES (4, 'Besnard', 'Er
 -- Déchargement des données de la table `categorie`
 --
 
-INSERT INTO `category` (`code`, `name`, `image`) VALUES ('AC', 'Action', 'https://upload.wikimedia.org/wikipedia/commons/thu');
-INSERT INTO `category` (`code`, `name`, `image`) VALUES ('CO', 'ComÃ©die', 'https://upload.wikimedia.org/wikipedia/commons/thu');
-INSERT INTO `category` (`code`, `name`, `image`) VALUES ('PO', 'Policier', 'https://upload.wikimedia.org/wikipedia/commons/thu');
-INSERT INTO `category` (`code`, `name`, `image`) VALUES ('WE', 'Western', 'https://upload.wikimedia.org/wikipedia/commons/5/5');
+INSERT INTO `category` (`code`, `name`, `icon`, `color`) VALUES ('AC', 'Action', 'action','#770752');
+INSERT INTO `category` (`code`, `name`, `icon`, `color`) VALUES ('AV', 'Aventure', 'adventure', '#770752');
+INSERT INTO `category` (`code`, `name`, `icon`, `color`) VALUES ('AN', 'Animation', 'animation','#770752');
+INSERT INTO `category` (`code`, `name`, `icon`, `color`) VALUES ('CM', 'Comédie', 'comedy', '#770752');
+INSERT INTO `category` (`code`, `name`, `icon`, `color`) VALUES ('UK', 'Sans catégorie', 'default','#770752');
+INSERT INTO `category` (`code`, `name`, `icon`, `color`) VALUES ('DR', 'Drame', 'drama', '#770752');
+INSERT INTO `category` (`code`, `name`, `icon`, `color`) VALUES ('FM', 'Famille', 'family','#770752');
+INSERT INTO `category` (`code`, `name`, `icon`, `color`) VALUES ('FT', 'Fantastique', 'fantasy', '#770752');
+INSERT INTO `category` (`code`, `name`, `icon`, `color`) VALUES ('HS', 'Historique', 'history', '#770752');
+INSERT INTO `category` (`code`, `name`, `icon`, `color`) VALUES ('HR', 'Horreur', 'horror','#770752');
+INSERT INTO `category` (`code`, `name`, `icon`, `color`) VALUES ('MS', 'Musical', 'musical', '#770752');
+INSERT INTO `category` (`code`, `name`, `icon`, `color`) VALUES ('RM', 'Romantique', 'romance','#770752');
+INSERT INTO `category` (`code`, `name`, `icon`, `color`) VALUES ('SF', 'Science Fiction', 'sci-fi', '#770752');
+INSERT INTO `category` (`code`, `name`, `icon`, `color`) VALUES ('TH', 'Thriller', 'thriller','#770752');
+INSERT INTO `category` (`code`, `name`, `icon`, `color`) VALUES ('WR', 'Guerre', 'war', '#770752');
+INSERT INTO `category` (`code`, `name`, `icon`, `color`) VALUES ('WS', 'Western', 'western','#770752');
 
 --
 -- Déchargement des données de la table `film`

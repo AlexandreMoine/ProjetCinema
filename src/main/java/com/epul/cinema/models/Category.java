@@ -9,7 +9,8 @@ import java.util.Objects;
 public class Category implements Serializable {
     private String code;
     private String name;
-    private String image;
+    private String icon;
+    private String color;
 
     @Id
     @Column(name = "code")
@@ -33,13 +34,23 @@ public class Category implements Serializable {
     }
 
     @Basic
-    @Column(name = "image")
-    public String getImage() {
-        return image;
+    @Column(name = "icon")
+    public String getIcon() {
+        return icon;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setIcon(String image) {
+        this.icon = image;
+    }
+
+    @Basic
+    @Column(name = "color")
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     @Override
@@ -47,11 +58,11 @@ public class Category implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Category that = (Category) o;
-        return Objects.equals(code, that.code) && Objects.equals(name, that.name) && Objects.equals(image, that.image);
+        return Objects.equals(code, that.code) && Objects.equals(name, that.name) && Objects.equals(icon, that.icon);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, name, image);
+        return Objects.hash(code, name, icon);
     }
 }
