@@ -46,6 +46,51 @@ public class ActorController {
         return actor;
     }
 
+    @GetMapping("/firstname/{firstname}")
+    public List<Actor> getActorsByFirstname(@PathVariable String firstname) {
+        List<Actor> actors = null;
+        try{
+            actors = this.actorService.getActorsByFirstname(firstname);
+        } catch (Exception e){
+            ResponseEntity.notFound().build();
+        }
+        return actors;
+    }
+
+    @GetMapping("/lastname/{lastname}")
+    public List<Actor> getActorsByLastname(@PathVariable String lastname) {
+        List<Actor> actors = null;
+        try{
+            actors = this.actorService.getActorsByLastname(lastname);
+        } catch (Exception e){
+            ResponseEntity.notFound().build();
+        }
+        return actors;
+    }
+
+    @GetMapping("/character_firstname/{firstname}")
+    public List<Actor> getActorsByCharacterFirstname(@PathVariable String firstname) {
+        List<Actor> actors = null;
+        try{
+            actors = this.actorService.getActorsByCharacterFirstname(firstname);
+        } catch (Exception e){
+            ResponseEntity.notFound().build();
+        }
+        return actors;
+    }
+
+    @GetMapping("/character_lastname/{lastname}")
+    public List<Actor> getActorsByCharacterLastname(@PathVariable String lastname) {
+        List<Actor> actors = null;
+        try{
+            actors = this.actorService.getActorsByCharacterLastname(lastname);
+        } catch (Exception e){
+            ResponseEntity.notFound().build();
+        }
+        return actors;
+    }
+
+
     @PostMapping()
     @PreAuthorize("hasRole('USER') || hasRole('MODERATOR') || hasRole('ADMIN')")
     public Actor create(@RequestBody Actor actor, HttpServletResponse response){

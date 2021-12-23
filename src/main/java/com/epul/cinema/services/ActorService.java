@@ -27,6 +27,23 @@ public class ActorService {
         return this.actorRepository.findById(id).orElseThrow(() -> new EntityNotFoundException());
     }
 
+    public List<Actor> getActorsByFirstname(String firstname) {
+        return this.actorRepository.getActorsByFirstname(firstname);
+    }
+
+    public List<Actor> getActorsByLastname(String lastname) {
+        return this.actorRepository.getActorsByLastname(lastname);
+    }
+
+    public List<Actor> getActorsByCharacterFirstname(String firstname) {
+        return this.actorRepository.getActorsByCharacterFirstname(firstname);
+    }
+
+    public List<Actor> getActorsByCharacterLastname(String lastname) {
+        return this.actorRepository.getActorsByCharacterLastname(lastname);
+    }
+
+
     public Actor create(Actor actor){
         return this.actorRepository.saveAndFlush(actor);
     }
