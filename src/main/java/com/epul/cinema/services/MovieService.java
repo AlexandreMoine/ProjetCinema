@@ -1,6 +1,6 @@
 package com.epul.cinema.services;
 
-import com.epul.cinema.models.Actor;
+import com.epul.cinema.models.Category;
 import com.epul.cinema.models.Movie;
 import com.epul.cinema.repositories.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +40,8 @@ public class MovieService {
         return this.movieRepository.getMoviesByDate(startDate, endDate);
     }
 
-    public List<Movie> listByCategory(String category) {
-        return this.movieRepository.getMoviesByCategory(category);
+    public List<Movie> listByCategory(String code) {
+        return this.movieRepository.findByCategories_Code(code);
     }
 
     public Movie create(Movie movie){

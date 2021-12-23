@@ -69,10 +69,10 @@ INSERT INTO `category` (`code`, `name`, `icon`, `color`) VALUES ('WS', 'Western'
 -- Déchargement des données de la table `film`
 --
 
-INSERT INTO `movie` (`id`, `title`, `duration`, `release_date`, `budget`, `revenue_amount`, `director_id`, `category_code`) VALUES (1, 'Léon', 110, '1994-04-14', 17531000, 69250000, 3, 'PO');
-INSERT INTO `movie` (`id`, `title`, `duration`, `release_date`, `budget`, `revenue_amount`, `director_id`, `category_code`) VALUES (2, 'Cash', 100, '2008-04-23', 18340000, 60340000, 4, 'PO');
-INSERT INTO `movie` (`id`, `title`, `duration`, `release_date`, `budget`, `revenue_amount`, `director_id`, `category_code`) VALUES (3, 'La grande vadrouille', 132, '1966-12-01', 7227000, 51258000, 2, 'AC');
-INSERT INTO `movie` (`id`, `title`, `duration`, `release_date`, `budget`, `revenue_amount`, `director_id`, `category_code`) VALUES (4, 'Subway', 104, '1985-04-10', 10567000, 70500000, 3, 'PO');
+INSERT INTO `movie` (`id`, `title`, `duration`, `release_date`, `budget`, `revenue_amount`, `director_id`) VALUES (1, 'Léon', 110, '1994-04-14', 17531000, 69250000, 3);
+INSERT INTO `movie` (`id`, `title`, `duration`, `release_date`, `budget`, `revenue_amount`, `director_id`) VALUES (2, 'Cash', 100, '2008-04-23', 18340000, 60340000, 4);
+INSERT INTO `movie` (`id`, `title`, `duration`, `release_date`, `budget`, `revenue_amount`, `director_id`) VALUES (3, 'La grande vadrouille', 132, '1966-12-01', 7227000, 51258000, 2);
+INSERT INTO `movie` (`id`, `title`, `duration`, `release_date`, `budget`, `revenue_amount`, `director_id`) VALUES (4, 'Subway', 104, '1985-04-10', 10567000, 70500000, 3);
 
 --
 -- Déchargement des données de la table `personnage`
@@ -87,6 +87,10 @@ INSERT INTO `movie_character` (`movie_id`, `actor_id`, `firstname`) VALUES (3, 5
 INSERT INTO `movie_character` (`movie_id`, `actor_id`, `firstname`) VALUES (4, 1, 'Le Batteur');
 INSERT INTO `movie_character` (`movie_id`, `actor_id`, `firstname`) VALUES (4, 6, 'Le Roller');
 INSERT INTO `movie_character` (`movie_id`, `actor_id`, `firstname`) VALUES (4, 7, 'Fred');
+
+
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (1,'AC');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (1,'DR');
 
 
 COMMIT;

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 @RestController
@@ -20,6 +19,9 @@ public class MovieController {
 
     @Autowired
     private MovieService movieService;
+
+    @Autowired
+    private CategoryService categoryService;
 
     @GetMapping
     public List<Movie> list() {
@@ -65,11 +67,11 @@ public class MovieController {
         return movies;
     }
 
-    @GetMapping("/getByCategory/{category}")
-    public List<Movie> getByCategory(@PathVariable String category){
+    @GetMapping("/getByCategory/{code}")
+    public List<Movie> getByCategory(@PathVariable String code){
         List<Movie> movies = null;
         try{
-            movies = this.movieService.listByCategory(category);
+            movies = this.movieService.listByCategory(code);
         } catch (Exception e){
             ResponseEntity.notFound().build();
         }
