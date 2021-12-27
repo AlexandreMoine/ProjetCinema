@@ -1,26 +1,56 @@
 package com.epul.cinema.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.Objects;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "movie", schema = "cinema", catalog = "")
+@Table(name = "movie", schema = "cinema")
 public class Movie {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Basic
     private String title;
+
+    @Basic
+    @Column(columnDefinition = "text")
+    private String description;
+
+    @Basic
+    @Column(name = "cover_path")
+    private String coverPath;
+
+    @Basic
     private Integer duration;
-    private Date release_date;
-    private Integer budget;
-    private Integer revenue_amount;
-    private Category category;
+
+    @Basic
+    @Column(name = "release_date")
+    private Date releaseDate;
+
+
+    // TODO
+    /**
+     * information pas intéressante ?
+     **/
+//    @Basic
+//    private Integer budget;
+//
+//    @Basic
+//    private Integer revenue_amount;
+
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "director_id", referencedColumnName = "id", nullable = true)
     private Director director;
 
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "movie_categories",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private Set<Category> categories = new HashSet<>();
+
     public Long getId() {
         return id;
     }
@@ -29,8 +59,6 @@ public class Movie {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "title")
     public String getTitle() {
         return title;
     }
@@ -39,8 +67,22 @@ public class Movie {
         this.title = title;
     }
 
-    @Basic
-    @Column(name = "duration")
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCoverPath() {
+        return coverPath;
+    }
+
+    public void setCoverPath(String coverPath) {
+        this.coverPath = coverPath;
+    }
+
     public Integer getDuration() {
         return duration;
     }
@@ -49,61 +91,14 @@ public class Movie {
         this.duration = duration;
     }
 
-    @Basic
-    @Column(name = "release_date")
     public Date getReleaseDate() {
-        return release_date;
+        return releaseDate;
     }
 
-    public void setReleaseDate(Date release_date) {
-        this.release_date = release_date;
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
-    @Basic
-    @Column(name = "budget")
-    public Integer getBudget() {
-        return budget;
-    }
-
-    public void setBudget(Integer budget) {
-        this.budget = budget;
-    }
-
-    @Basic
-    @Column(name = "revenue_amount")
-    public Integer getRevenueAmount() {
-        return revenue_amount;
-    }
-
-    public void setRevenueAmount(Integer revenue_amount) {
-        this.revenue_amount = revenue_amount;
-    }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Movie that = (Movie) o;
-        return Objects.equals(id, that.id) && Objects.equals(title, that.title) && Objects.equals(duration, that.duration) && Objects.equals(release_date, that.release_date) && Objects.equals(budget, that.budget) && Objects.equals(revenue_amount, that.revenue_amount);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, title, duration, release_date, budget, revenue_amount);
-    }
-
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "category_code", referencedColumnName = "code", nullable = false)
-    public Category getCategory() {
-        return category;
-    }
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "director_id", referencedColumnName = "id", nullable = false)
     public Director getDirector() {
         return director;
     }
@@ -112,4 +107,11 @@ public class Movie {
         this.director = director;
     }
 
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
+    }
 }

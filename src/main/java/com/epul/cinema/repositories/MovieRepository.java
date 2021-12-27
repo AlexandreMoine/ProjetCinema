@@ -1,6 +1,7 @@
 package com.epul.cinema.repositories;
 
 import com.epul.cinema.models.Movie;
+import com.epul.cinema.models.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -22,6 +23,6 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
             "ORDER BY movies.releaseDate DESC")
     List<Movie> getMoviesByDate(@Param("startDate") Date startDate, @Param("endDate") Date endDate);
 
-    @Query("SELECT movies FROM Movie movies WHERE movies.category.code = :category")
-    List<Movie> getMoviesByCategory(@Param("category") String category);
+    List<Movie> findByCategories_Code(String code);
+
 }

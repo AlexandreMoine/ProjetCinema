@@ -69,10 +69,29 @@ INSERT INTO `category` (`code`, `name`, `icon`, `color`) VALUES ('WS', 'Western'
 -- Déchargement des données de la table `film`
 --
 
-INSERT INTO `movie` (`id`, `title`, `duration`, `release_date`, `budget`, `revenue_amount`, `director_id`, `category_code`) VALUES (1, 'Léon', 110, '1994-04-14', 17531000, 69250000, 3, 'PO');
-INSERT INTO `movie` (`id`, `title`, `duration`, `release_date`, `budget`, `revenue_amount`, `director_id`, `category_code`) VALUES (2, 'Cash', 100, '2008-04-23', 18340000, 60340000, 4, 'PO');
-INSERT INTO `movie` (`id`, `title`, `duration`, `release_date`, `budget`, `revenue_amount`, `director_id`, `category_code`) VALUES (3, 'La grande vadrouille', 132, '1966-12-01', 7227000, 51258000, 2, 'AC');
-INSERT INTO `movie` (`id`, `title`, `duration`, `release_date`, `budget`, `revenue_amount`, `director_id`, `category_code`) VALUES (4, 'Subway', 104, '1985-04-10', 10567000, 70500000, 3, 'PO');
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('Léon','', 110, '1994-04-14', 'images/leon.jpg', 3);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('Ca$h','', 100, '2008-04-23', 'images/cash.jpg', 4);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('La grande vadrouille','', 132, '1966-12-01', 'images/la-grande-vadrouille.jpg', 2);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('Subway','', 104, '1985-04-10', 'images/subway.jpg', 3);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('Coco','', 0, '1985-04-10', 'images/coco.jpg', null);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('Forrest Gump','', 0, '1985-04-10', 'images/forrest-gump.jpg', null);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('Gladiator','', 0, '1985-04-10', 'images/gladiator.jpg', null);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('Inception','', 0, '1985-04-10', 'images/inception.jpg', null);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('Interstellar','', 0, '1985-04-10', 'images/interstellar.jpg', null);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('Le dictateur','', 0, '1985-04-10', 'images/le-dictateur.jpg', null);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('Le parrain','', 0, '1985-04-10', 'images/le-parrain.jpg', null);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ("Le seigneur des anneaux : La communauté de l\'anneau",'', 0, '1985-04-10', 'images/coco.jpg', null);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ("Le seigneur des anneaux : Les deux tours",'', 0, '1985-04-10', 'images/coco.jpg', null);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ("Le seigneur des anneaux : Le retour du roi",'', 0, '1985-04-10', 'images/coco.jpg', null);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('Le voyage de Chihiro','', 0, '1985-04-10', 'images/le-voyage-de-chihiro.jpg', null);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('Retour vers le futur','', 0, '1985-04-10', 'images/retour-vers-le-futur.jpg', null);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('Spiderman into the spiderverse','', 0, '1985-04-10', 'images/spiderman-into-the-spiderverse.jpg', null);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('Star Wars : épisode 5 - Ta mère contre attaque','', 0, '1985-04-10', 'images/star-wars-episode-5.jpg', null);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('The dark knight','', 0, '1985-04-10', 'images/the-dark-knight.jpg', null);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('Toy story 3','', 0, '1985-04-10', 'images/toy-story-3.jpg', null);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ("Vol au dessus d\'un nid de coucou",'', 0, '1985-04-10', 'images/vol-au-dessus-dun-nid-de-coucou.jpg', null);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('Your name','', 0, '1985-04-10', 'images/your-name.jpg', null);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('Zootopia','', 0, '1985-04-10', 'images/zootopia.jpg', null);
 
 --
 -- Déchargement des données de la table `personnage`
@@ -87,6 +106,64 @@ INSERT INTO `movie_character` (`movie_id`, `actor_id`, `firstname`) VALUES (3, 5
 INSERT INTO `movie_character` (`movie_id`, `actor_id`, `firstname`) VALUES (4, 1, 'Le Batteur');
 INSERT INTO `movie_character` (`movie_id`, `actor_id`, `firstname`) VALUES (4, 6, 'Le Roller');
 INSERT INTO `movie_character` (`movie_id`, `actor_id`, `firstname`) VALUES (4, 7, 'Fred');
+
+
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (1,'AC');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (1,'DR');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (2,'TH');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (3,'CM');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (3,'WR');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (3,'HS');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (4,'TH');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (4,'DR');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (5,'AN');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (5,'AV');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (5,'FM');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (6,'DR');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (6,'RM');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (6,'FM');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (7,'AC');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (7,'AV');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (8,'SF');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (8,'AC');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (9,'SF');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (9,'AV');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (9,'FM');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (10,'FM');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (10,'HS');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (10,'WR');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (10,'CM');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (11,'DR');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (11,'FM');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (12,'FT');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (12,'AV');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (13,'FT');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (13,'AV');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (14,'FT');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (14,'AV');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (15,'AN');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (15,'FM');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (15,'AV');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (16,'FM');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (16,'AV');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (16,'SF');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (17,'AN');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (17,'FM');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (18,'SF');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (18,'WR');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (19,'AC');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (19,'AV');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (19,'FM');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (20,'AN');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (20,'AV');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (20,'FM');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (21,'DR');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (21,'CM');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (22,'AN');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (22,'RM');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (23,'AN');
+INSERT INTO `movie_categories` (`movie_id`, `category_id`) VALUES (23,'HR');
+
 
 
 COMMIT;
