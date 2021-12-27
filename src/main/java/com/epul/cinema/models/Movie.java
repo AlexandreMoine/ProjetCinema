@@ -16,24 +16,37 @@ public class Movie {
     private String title;
 
     @Basic
+    @Column(columnDefinition = "text")
+    private String description;
+
+    @Basic
+    @Column(name = "cover_path")
+    private String coverPath;
+
+    @Basic
     private Integer duration;
 
     @Basic
     @Column(name = "release_date")
     private Date releaseDate;
 
-    @Basic
-    private Integer budget;
 
-    @Basic
-    private Integer revenue_amount;
+    // TODO
+    /**
+     * information pas intéressante ?
+     **/
+//    @Basic
+//    private Integer budget;
+//
+//    @Basic
+//    private Integer revenue_amount;
 
     @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "director_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "director_id", referencedColumnName = "id", nullable = true)
     private Director director;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(	name = "movie_categories",
+    @JoinTable(name = "movie_categories",
             joinColumns = @JoinColumn(name = "movie_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
@@ -54,6 +67,22 @@ public class Movie {
         this.title = title;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCoverPath() {
+        return coverPath;
+    }
+
+    public void setCoverPath(String coverPath) {
+        this.coverPath = coverPath;
+    }
+
     public Integer getDuration() {
         return duration;
     }
@@ -66,24 +95,8 @@ public class Movie {
         return releaseDate;
     }
 
-    public void setReleaseDate(Date release_date) {
-        this.releaseDate = release_date;
-    }
-
-    public Integer getBudget() {
-        return budget;
-    }
-
-    public void setBudget(Integer budget) {
-        this.budget = budget;
-    }
-
-    public Integer getRevenue_amount() {
-        return revenue_amount;
-    }
-
-    public void setRevenue_amount(Integer revenue_amount) {
-        this.revenue_amount = revenue_amount;
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     public Director getDirector() {
