@@ -28,4 +28,19 @@ public class CategoryService {
         return this.categoryRepository.findAll();
     }
 
+    public Category create(Category category) {
+        return this.categoryRepository.saveAndFlush(category);
+    }
+
+    public Category update(String code, Category category) {
+        if(this.categoryRepository.existsByCode(code)) {
+            category.setCode(code);
+        }
+        return this.create(category);
+    }
+
+    public void delete(String code) {
+        this.categoryRepository.deleteByCode(code);
+    }
+
 }

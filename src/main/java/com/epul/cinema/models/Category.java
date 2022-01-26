@@ -14,7 +14,7 @@ public class Category implements Serializable {
 
     @Id
     @Column(name = "code")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE)
     public String getCode() {
         return code;
     }

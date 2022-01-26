@@ -35,4 +35,34 @@ public class CategoryController {
         }
         return categories;
     }
+
+
+    @PostMapping()
+    @PreAuthorize("hasRole('USER') || hasRole('MODERATOR') || hasRole('ADMIN')")
+    public Category create(@RequestBody Category category, HttpServletResponse response){
+        Category createdCategory = categoryService.create(category);
+        response.setStatus(HttpStatus.CREATED.value());
+        return createdCategory;
+    }
+
+    @PutMapping("/{code}")
+    @PreAuthorize("hasRole('USER') || hasRole('MODERATOR') || hasRole('ADMIN')")
+    public Category update(@PathVariable String code, @RequestBody Category category){
+        return this.categoryService.update(code, category);
+    }
+
+    @PostMapping("/delete/{code}")
+    @PreAuthorize("hasRole('USER') || hasRole('MODERATOR') || hasRole('ADMIN')")
+    public ResponseEntity<Object> delete(@PathVariable String code){
+        try {
+            this.categoryService.delete(code);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(String.format("Category with code = %s is deleted successfully", code), HttpStatus.OK);
+    }
+
+
+
+
 }
