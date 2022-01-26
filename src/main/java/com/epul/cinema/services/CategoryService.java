@@ -33,14 +33,14 @@ public class CategoryService {
     }
 
     public Category update(String code, Category category) {
-        if(this.categoryRepository.existsById(code)) {
+        if(this.categoryRepository.existsByCode(code)) {
             category.setCode(code);
         }
         return this.create(category);
     }
 
     public void delete(String code) {
-        this.categoryRepository.deleteById(code);
+        this.categoryRepository.deleteByCode(code);
     }
 
 }

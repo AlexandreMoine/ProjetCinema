@@ -10,6 +10,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {
 
+    boolean existsByCode(String code);
+
+    void deleteByCode(String code);
+
     @Query("SELECT categories FROM Category categories WHERE categories.code = :code")
     Category findByCode(@Param("code") String code);
 }
