@@ -1,5 +1,6 @@
 package com.epul.cinema.controllers;
 
+import com.epul.cinema.models.Movie;
 import com.epul.cinema.models.MovieCharacter;
 import com.epul.cinema.services.MovieCharacterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,17 @@ public class MovieCharacterController {
 
     @Autowired
     private MovieCharacterService movieCharacterService;
+
+    @GetMapping
+    public List<MovieCharacter> list() {
+        List<MovieCharacter> characters = null;
+        try {
+            characters = this.movieCharacterService.list();
+        } catch (Exception e) {
+            ResponseEntity.notFound().build();
+        }
+        return characters;
+    }
 
     @GetMapping("/movies/{movie_id}")
     public List<MovieCharacter> listByMovie(@PathVariable int movie_id) {

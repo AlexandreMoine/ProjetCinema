@@ -1,5 +1,6 @@
 package com.epul.cinema.services;
 
+import com.epul.cinema.models.Movie;
 import com.epul.cinema.models.MovieCharacter;
 import com.epul.cinema.repositories.MovieCharacterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,9 @@ public class MovieCharacterService {
     @Autowired
     public MovieCharacterService(MovieCharacterRepository movieCharacterRepository) {
         this.movieCharacterRepository = movieCharacterRepository;
+    }
+    public List<MovieCharacter> list() {
+        return this.movieCharacterRepository.findAll();
     }
 
     public List<MovieCharacter> listByMovie(long movie_id) {
