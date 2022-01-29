@@ -69,7 +69,7 @@ INSERT INTO `category` (`code`, `name`, `icon`, `color`) VALUES ('WS', 'Western'
 -- Déchargement des données de la table `film`
 --
 
-INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('Léon','', 110, '1994-04-14', 'images/leon.jpg', 3);
+INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('Léon','Un tueur à gages répondant au nom de Léon prend sous son aile Mathilda, une petite fille de 12 ans, seule rescapée du massacre de sa famille. Bientôt, Léon va faire de Mathilda une `nettoyeuse'', comme lui. La jeune fille pourra alors venger son petit frère.', 110, '1994-04-14', 'images/leon.jpg', 3);
 INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('Ca$h','', 100, '2008-04-23', 'images/cash.jpg', 4);
 INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('La grande vadrouille','', 132, '1966-12-01', 'images/la-grande-vadrouille.jpg', 2);
 INSERT INTO `movie` (`title`, `description`, `duration`, `release_date`, `cover_path`, `director_id`) VALUES ('Subway','', 104, '1985-04-10', 'images/subway.jpg', 3);
