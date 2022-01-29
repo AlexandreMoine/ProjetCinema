@@ -20,6 +20,7 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/images")
 public class ImageController {
 
@@ -30,6 +31,7 @@ public class ImageController {
 
     @PostMapping("/upload")
     public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file) {
+
         String fileName = fileStorageService.storeFile(file);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
