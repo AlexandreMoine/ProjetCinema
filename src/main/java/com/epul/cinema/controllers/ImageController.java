@@ -9,6 +9,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -30,6 +31,7 @@ public class ImageController {
     private FileStorageService fileStorageService;
 
     @PostMapping("/upload")
+    @PreAuthorize("hasRole('MODERATOR') || hasRole('ADMIN')")
     public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file) {
 
         String fileName = fileStorageService.storeFile(file);
@@ -44,6 +46,7 @@ public class ImageController {
     }
 
     @PostMapping("/multiple-upload")
+    @PreAuthorize("hasRole('MODERATOR') || hasRole('ADMIN')")
     public List<UploadFileResponse> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files) {
         return Arrays.asList(files)
                 .stream()

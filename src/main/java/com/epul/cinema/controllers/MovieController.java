@@ -91,13 +91,13 @@ public class MovieController {
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasRole('USER') || hasRole('MODERATOR') || hasRole('ADMIN')")
+    @PreAuthorize("hasRole('MODERATOR') || hasRole('ADMIN')")
     public Movie update(@PathVariable long id, @RequestBody Movie movie){
         return this.movieService.update(id, movie);
     }
 
     @PostMapping()
-    @PreAuthorize("hasRole('USER') || hasRole('MODERATOR') || hasRole('ADMIN')")
+    @PreAuthorize("hasRole('MODERATOR') || hasRole('ADMIN')")
     public Movie create(@RequestBody Movie movie, HttpServletResponse response){
         System.out.println(movie);
         Movie createdMovie = movieService.create(movie);
@@ -107,7 +107,7 @@ public class MovieController {
 
     // TODO pas ouf si le film est référencé ailleurs dans la base
     @PostMapping("/delete/{id}")    
-    @PreAuthorize("hasRole('USER') || hasRole('MODERATOR') || hasRole('ADMIN')")
+    @PreAuthorize("hasRole('MODERATOR') || hasRole('ADMIN')")
     public ResponseEntity<Object> delete(@PathVariable long id){
         try {
             this.movieService.delete(id);
